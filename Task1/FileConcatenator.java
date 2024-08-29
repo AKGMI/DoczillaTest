@@ -4,9 +4,15 @@ import java.util.*;
 
 public class FileConcatenator {
     private static final String REQUIRE_DIRECTIVE = "require";
-    private static final Path ROOT_DIRECTORY = Paths.get("D:\\Tests\\DoczillaTest\\Task1\\testDir");
+    private static Path ROOT_DIRECTORY;
 
     public static void main(String[] args) throws IOException {
+        if (args.length > 0) {
+            ROOT_DIRECTORY = Paths.get(args[0]);
+        } else {
+            ROOT_DIRECTORY = Paths.get(System.getProperty("user.dir"), "testDir");
+        }
+
         System.out.println("Starting file scan...");
         List<Path> textFiles = new ArrayList<>();
         Files.walk(ROOT_DIRECTORY)
