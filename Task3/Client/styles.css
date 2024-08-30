@@ -1,0 +1,314 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 320px;
+    background-color: #dcdcdc;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-shrink: 0; /* Сайдбар не изменяет свою ширину */
+}
+
+#search-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+#search-results .result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#search-results .result-item:hover {
+    background-color: #f5f5f5;
+}
+
+#search-results .result-item:last-child {
+    border-bottom: none;
+}
+
+
+.sidebar label {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.sidebar button:hover {
+    background-color: #555;
+}
+
+#datepicker {
+    width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    justify-content: center;
+}
+
+label input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+#task-container {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Контейнер занимает всю высоту экрана */
+}
+
+#task-list-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+}
+
+#task-list {
+    flex-grow: 1; /* Заставляет список задач занимать оставшееся пространство в контейнере */
+    padding: 10px;
+    background-color: #e0e0e0;
+    overflow-y: auto; /* Добавляет внутреннюю прокрутку для списка задач */
+}
+
+#sort-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+#sort-btn:hover {
+    background-color: #555;
+}
+
+#sort-icon.asc::before {
+    content: "⬆️"; /* Иконка для сортировки по возрастанию */
+}
+
+#sort-icon.desc::before {
+    content: "⬇️"; /* Иконка для сортировки по убыванию */
+}
+
+.task-list {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #e0e0e0;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.task-list .task {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-list .task h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.task-list .task p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+.task-list .task .status {
+    font-size: 24px;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.task-group {
+    margin-bottom: 20px;
+}
+
+.task-group h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.task {
+    background-color: #e0e0e0;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.task h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.task p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.task .status {
+    font-size: 24px;
+}
+
+.task .time {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: #999;
+}
+
+#task-modal {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#task-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.task-status-checkbox {
+    transform: scale(1.5);
+}
+
+.task-date {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.modal-divider {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.task-description {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.modal-close-button {
+    background-color: #ddd;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modal-close-button:hover {
+    background-color: #ccc;
+}
+
+/* Общий стиль для выделенного диапазона */
+.ui-datepicker td.range {
+    background-color: #6fb5ff; /* Светлый синий фон для диапазона */
+    border-radius: 0; /* Сбрасываем скругление */
+}
+
+/* Начальная дата диапазона */
+.ui-datepicker td.range-start, .ui-datepicker td.range-end {
+    background-color: #56ff00; /* Насыщенный синий фон для начальной даты */
+    border-top-left-radius: 50%; /* Скругление верхнего левого угла */
+    border-bottom-left-radius: 50%; /* Скругление нижнего левого угла */
+}
+
+/* Эффект при наведении на даты */
+.ui-datepicker td:hover {
+    background-color: #b0c4de; /* Светло-голубой цвет при наведении */
+}

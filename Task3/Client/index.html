@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Поиск задач..." />
+            <div id="search-results"></div>
+        </div>
+        <button id="today-btn">Сегодня</button>
+        <button id="week-btn">На неделю</button>
+        <div id="datepicker"></div>
+        <label>
+            <input type="checkbox" id="filter-incomplete"> Только невыполненные
+        </label>
+        <button id="reset-btn">Сбросить диапазон</button>
+    </div>
+    <div id="task-container">
+        <div id="task-list-header">
+            <button id="sort-btn">
+                <span id="sort-icon" class="asc"></span>
+                Сортировать по дате
+            </button>
+        </div>
+        <div class="task-list" id="task-list"></div>
+    </div>
+</div>
+
+<div id="task-modal" style="display:none;">
+    <div class="modal-header">
+        <h2 id="task-title">Название</h2>
+        <input type="checkbox" id="task-status" class="task-status-checkbox">
+    </div>
+    <div id="task-date" class="task-date">08.05.2022 00:10</div>
+    <hr class="modal-divider">
+    <div id="task-description" class="task-description">
+        Полное описание задачи.
+    </div>
+</div>
+
+
+<script src="js/render.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/search.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
